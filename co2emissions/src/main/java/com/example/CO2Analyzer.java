@@ -1,6 +1,5 @@
 // CO2Analyzer.java
-// A very simple program that looks at CO2 emissions for 5 countries.
-// The numbers are APPROXIMATE (million tonnes of CO2 in the year 2022).
+// The program looks at CO2 emissions for 5 countries.
 
 public class CO2Analyzer {
 
@@ -11,11 +10,11 @@ public class CO2Analyzer {
 
         // CO2 emissions in 2000 and 2022 (million tonnes)
         // Each number matches the country in the same spot above.
-        double[] emissions2000 = {6010, 430, 540, 3400, 1050};
-        double[] emissions2022 = {5060, 460, 550, 11400, 2830};
+        double[] emissions2000 = {0, 0, 0, 0, 0};
+        double[] emissions2022 = {0, 0, 0, 0, 0};
 
         // Population in 2022 (millions of people)
-        double[] population2022 = {333, 127, 38.5, 1412, 1417};
+        double[] population2022 = {0, 0, 0, 0, 0};
 
         System.out.println("CO2 Emissions Analysis");
         System.out.println("======================");
