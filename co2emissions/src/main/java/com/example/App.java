@@ -1,5 +1,5 @@
 package com.example;
-
+import java.util.List;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -54,21 +54,34 @@ public class App extends Application {
             "-fx-background-radius: 8px;"
         );
 
-        // Button action
-        exploreButton.setOnAction(event -> {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-            alert.setTitle("CO2 Data");
-            alert.setHeaderText("CO2 Emissions Explorer");
+// Button action
+exploreButton.setOnAction(event -> {
 
-            alert.setContentText(
-                "The CO2 data reader and analyzer " +
-                "will be connected here."
-            );
+    // Read the CSV file
+    List<EmissionRecord> records =
+        CO2DataReader.readData(
+            "src/main/resources/owid-co2-data.csv"
+        );
 
-            alert.showAndWait();
-        });
+    if (!records.isEmpty()) {
+
+        // Run the analysis
+        CO2Analyzer.analyze(records);
+
+        // Open the new GUI
+        CO2GUI.show(records);
+
+    } else {
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("No CO2 data found.");
+        alert.showAndWait();
+    }
+});
+
+
 
         // Center layout
         VBox center = new VBox(25);
